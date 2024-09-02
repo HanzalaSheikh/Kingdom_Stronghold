@@ -2,35 +2,46 @@ using UnityEngine;
 
 public class TowerBullet : MonoBehaviour
 {
-    private GameObject player;
     private Rigidbody2D rb;
-    private float timer;
     public float force;
-    // Start is called before the first frame update
+    public int damage = 10; // Amount of damage the bullet will cause
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
-    
-        Vector3 direction = player.transform.position - transform.position;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
-        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+
+        // Assuming the target is set when the bullet is instantiated
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Vector3 direction = player.transform.position - transform.position;
+            rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
+
+            float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+        }
     }
 
-    // Update is called once per frame
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            // Get the PlayerHealth component from the enemy
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                // Apply damage to the enemy
+                playerHealth.TakeDamage(damage);
+            }
+
+            // Destroy the bullet after it hits the player
+            Destroy(gameObject);
+        }
+    }
+
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > 1.5 ){
-            Destroy(gameObject);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.CompareTag("Player")){
-            Destroy(gameObject);
-            
-        }
+        // Optional: Destroy the bullet after a certain time to prevent it from existing indefinitely
+        Destroy(gameObject, 3f); // Destroy after 3 seconds if no collision
     }
 }
