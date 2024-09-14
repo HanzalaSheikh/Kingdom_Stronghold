@@ -8,8 +8,17 @@ public class towerShooting : MonoBehaviour
     public float shootingInterval = 1f; // Time between shots
     public float detectionRange = 2f; // Range within which the tower will shoot
 
+    //public float ClipLength = 1f;  //audio adding
+    //public GameObject AudioClip;    //audio adding
+
     private float timer;
     private List<GameObject> enemiesInRange = new List<GameObject>();
+
+    ////audio adding
+    //private void Start()
+    //{
+    //    AudioClip.SetActive(false);
+    //}
 
     void Update()
     {
@@ -71,6 +80,15 @@ public class towerShooting : MonoBehaviour
             {
                 Vector3 direction = (closestEnemy.transform.position - bulletPos.position).normalized;
                 Instantiate(bullet, bulletPos.position, Quaternion.LookRotation(direction));
+                
+                
+                ////audio clip adding - start
+                //{
+                //    AudioClip.SetActive(true);
+                //    yield return new WaitForSeconds(ClipLength);
+                //    AudioClip.SetActive(false);
+                //}
+                ////audio clip adding - end
             }
         }
     }
