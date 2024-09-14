@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class mainMenu : MonoBehaviour
 {
     public GameObject Main_Menu;
-    //public GameObject instructions; //how to play
+    public GameObject instructions; //user manual
     //public GameObject options;
 
 
@@ -15,9 +15,20 @@ public class mainMenu : MonoBehaviour
     void Start()
     {
         Main_Menu.SetActive(true);
-        //instructions.SetActive(false);
+        instructions.SetActive(false);
         //options.SetActive(false);
+    }
 
+    public void instructionBtnClicked()
+    {
+        Main_Menu.SetActive(false);
+        instructions.SetActive(true);
+    }
+
+    public void insCrossBtnClicked()
+    {
+        Main_Menu.SetActive(true);
+        instructions.SetActive(false);
     }
 
     public void playBtnClicked()
