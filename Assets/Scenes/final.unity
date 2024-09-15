@@ -1515,7 +1515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBarPrefab: {fileID: 1223438195917865697, guid: e2fe025498c418146aa251b2e5da1bdf, type: 3}
-  endPoint: {fileID: 903179122}
   goldReward: 10
   scoreReward: 100
 --- !u!1 &1202725706
@@ -1975,7 +1974,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBarPrefab: {fileID: 1223438195917865697, guid: e2fe025498c418146aa251b2e5da1bdf, type: 3}
-  endPoint: {fileID: 903179122}
   goldReward: 10
   scoreReward: 100
 --- !u!1001 &1452637674
@@ -3364,7 +3362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBarPrefab: {fileID: 1223438195917865697, guid: e2fe025498c418146aa251b2e5da1bdf, type: 3}
-  endPoint: {fileID: 903179122}
   goldReward: 10
   scoreReward: 100
 --- !u!1660057539 &9223372036854775807
