@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/bulletHitting.unity
     guid: cfc055facc1912843a4f661265ac0804
+  - enabled: 1
+    path: Assets/Scenes/gameOver.unity
+    guid: c265f9b608d0b7a46947e9f3e90324fc
   m_configObjects: {}

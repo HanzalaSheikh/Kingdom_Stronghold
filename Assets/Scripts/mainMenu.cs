@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 public class mainMenu : MonoBehaviour
 {
     public GameObject Main_Menu;
-    public GameObject instructions; //user manual
-    //public GameObject options;
+    public GameObject instructions; 
 
 
     // Start is called before the first frame update
@@ -16,7 +15,6 @@ public class mainMenu : MonoBehaviour
     {
         Main_Menu.SetActive(true);
         instructions.SetActive(false);
-        //options.SetActive(false);
     }
 
     public void instructionBtnClicked()
